@@ -1,0 +1,56 @@
+
+* {
+    
+    background-color: whitesmoke;
+        
+}
+
+h2 {
+
+    background-color: #990033;
+    color: white;
+
+}
+
+#encabezado {
+
+    background-color: #000000;
+    color: #9999ff;
+    text-align: center;
+
+}
+
+.articulo {
+
+    background-color: bisque;
+    font-family: sans-serif;
+    color: black;
+
+}
+
+footer span {
+    
+    color: blue;
+    
+}
+
+body {
+    
+    background-image: url('../img/Canon Camera.jpg');
+    background-repeat: no-repeat;
+    background-position-x: center;
+        
+}
+
+a:hover {
+    
+    background-color: red;
+    color: white;
+    
+}
+
+a {
+    
+    background-color: blue;
+    color: yellow;
+}
