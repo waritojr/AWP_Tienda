@@ -12,9 +12,11 @@
     <body>
 
         <header th:replace="layout/plantilla :: header"/>
-
         <div class="contenido">
+            
             <h1>Nuestros Articulos</h1>
+
+            <a th:href = "@{/articulo/nuevo}"> Nuevo Articulo </a>
 
             <div th:if="${articulos != null and !articulos.empty}">
 
@@ -23,18 +25,27 @@
                     <thead>
 
                         <tr>
-                            <th>Descripcion</th>
-                            <th>Precio</th>
-
+                            <th>Nombre</th>
+                            <th>Apellidos</th>
+                            <th>Correo</th>
+                            <th>Teléfono</th>
+                            <th>Limite</th>
+                            <th>Eliminar</th>
+                            <th>Modificar</th>
 
                         </tr>
 
                     </thead>
                     <tbody>
                         <tr th:each="articulo : ${articulos}">
-                            <td th:text="${articulo.descripcion}"></td>
-                            <td th:text="${#numbers.formatDecimal(articulo.precio,3,2)}"
+                            <td th:text="${articulo.nombre}"></td>
+                            <td th:text="${articulo.apellidos}"></td>
+                            <td th:text="${articulo.correo}"></td>
+                            <td th:text="${articulo.telefono}"></td>
+                            <td th:text="${#numbers.formatDecimal(articulo.credito.limite,3,2)}"
                                 style="text-align: right"></td>
+                            <td><a th:href="@{/articulo/eliminar/}+${articulo.idArticulo}"> Eliminar </a></td>
+                            <td><a th:href="@{/articulo/modificar/}+${articulo.idArticulo}"> Modificar </a></td>
                         </tr>
                     </tbody>
 
@@ -47,7 +58,7 @@
                 No tenemos lista de articulos que mostrar 
 
             </div>
-            
+
         </div>
 
         <footer th:replace="layout/plantilla :: footer"/>

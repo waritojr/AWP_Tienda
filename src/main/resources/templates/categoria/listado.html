@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+
+        <title>TechShop</title>
+        <meta charset="UTF-8">
+        <link href="/css/menu.css" rel="stylesheet" type="text/css"/>
+
+    </head>
+    <body>
+
+        <header th:replace="layout/plantilla :: header"/>
+        <div class="contenido">
+            
+            <h1>Nuestros Categorias</h1>
+
+            <a th:href = "@{/categoria/nuevo}"> Nuevo Categoria </a>
+
+            <div th:if="${categorias != null and !categorias.empty}">
+
+                <table border="1">
+
+                    <thead>
+
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Apellidos</th>
+                            <th>Correo</th>
+                            <th>Teléfono</th>
+                            <th>Limite</th>
+                            <th>Eliminar</th>
+                            <th>Modificar</th>
+
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                        <tr th:each="categoria : ${categorias}">
+                            <td th:text="${categoria.nombre}"></td>
+                            <td th:text="${categoria.apellidos}"></td>
+                            <td th:text="${categoria.correo}"></td>
+                            <td th:text="${categoria.telefono}"></td>
+                            <td th:text="${#numbers.formatDecimal(categoria.credito.limite,3,2)}"
+                                style="text-align: right"></td>
+                            <td><a th:href="@{/categoria/eliminar/}+${categoria.idCategoria}"> Eliminar </a></td>
+                            <td><a th:href="@{/categoria/modificar/}+${categoria.idCategoria}"> Modificar </a></td>
+                        </tr>
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <div th:if="${categorias == null and categorias.empty}">
+
+                No tenemos lista de categorias que mostrar 
+
+            </div>
+
+        </div>
+
+        <footer th:replace="layout/plantilla :: footer"/>
+
+    </body>
+</html>
