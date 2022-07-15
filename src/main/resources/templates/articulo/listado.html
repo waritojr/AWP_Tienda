@@ -25,11 +25,11 @@
                     <thead>
 
                         <tr>
-                            <th>Nombre</th>
-                            <th>Apellidos</th>
-                            <th>Correo</th>
-                            <th>Teléfono</th>
-                            <th>Limite</th>
+                            <th>Descripcion</th>
+                            <th>Detalle</th>
+                            <th>Precio</th>
+                            <th>Existencias</th>
+                            <th>Estado</th>
                             <th>Eliminar</th>
                             <th>Modificar</th>
 
@@ -38,12 +38,13 @@
                     </thead>
                     <tbody>
                         <tr th:each="articulo : ${articulos}">
-                            <td th:text="${articulo.nombre}"></td>
-                            <td th:text="${articulo.apellidos}"></td>
-                            <td th:text="${articulo.correo}"></td>
-                            <td th:text="${articulo.telefono}"></td>
-                            <td th:text="${#numbers.formatDecimal(articulo.credito.limite,3,2)}"
+                            <td th:text="${articulo.descripcion}"></td>
+                            <td th:text="${articulo.detalle}"></td>
+                            <td th:text="${#numbers.formatDecimal(articulo.precio,3,2)}"
                                 style="text-align: right"></td>
+                            <td th:text="${articulo.existencias}"
+                                style="text-align: center"></td>
+                            <td th:text="${articulo.activo}"></td>                            
                             <td><a th:href="@{/articulo/eliminar/}+${articulo.idArticulo}"> Eliminar </a></td>
                             <td><a th:href="@{/articulo/modificar/}+${articulo.idArticulo}"> Modificar </a></td>
                         </tr>

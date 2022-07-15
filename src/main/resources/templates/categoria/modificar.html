@@ -15,41 +15,26 @@
 
         <div class="contenido">
             
-            <h1> Datos Cliente</h1>
+            <h1> Datos Categoria</h1>
 
-            <a th:href = "@{/cliente/listado}"> Regresar </a>
+            <a th:href = "@{/categoria/listado}"> Regresar </a>
 
             <hr/>
 
-            <form th:action="@{/cliente/guardar}"
+            <form th:action="@{/categoria/guardar}"
                   method="post"
-                  th:object="${cliente}">
+                  th:object="${categoria}">
 
-                <input type="hidden" name="idCliente" th:field="*{idCliente}"/>
-                <input type="hidden" name="idCredito" th:field="*{credito.idCredito}"/>
+                <input type="hidden" name="idCategoria" th:field="*{idCategoria}"/>               
 
-                <label for = "nombre"> Nombre:</label>            
-                <input type="text" name="nombre" th:field="*{nombre}"/>
-
-                <br/>
-
-                <label for = "apellidos"> Apellidos:</label>            
-                <input type="text" name="apellidos" th:field="*{apellidos}"/>
+                <label for = "descripcion"> Descripcion:</label>            
+                <input type="text" name="descripcion" th:field="*{descripcion}"/>
 
                 <br/>
 
-                <label for = "correo"> Correo:</label>            
-                <input type="text" name="correo" th:field="*{correo}"/>
-
-                <br/>
-
-                <label for = "telefono"> Telefono:</label>            
-                <input type="tel" name="telefono" th:field="*{telefono}"/>
-                <br/>
-
-                <label for = "limite"> Limite del credito:</label>            
-                <input type="number" name="limite" th:field="*{credito.limite}"/>
-
+                <label for = "activo"> Estado:</label>            
+                <input type="text" name="activo" th:field="*{activo}"/>
+                
                 <hr/>
 
                 <input type="submit" name="guardar" value="Guardar"/>

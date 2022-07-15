@@ -15,40 +15,39 @@
 
         <div class="contenido">
             
-            <h1> Datos Cliente</h1>
+            <h1> Datos Articulo</h1>
 
-            <a th:href = "@{/cliente/listado}"> Regresar </a>
+            <a th:href = "@{/articulo/listado}"> Regresar </a>
 
             <hr/>
 
-            <form th:action="@{/cliente/guardar}"
+            <form th:action="@{/articulo/guardar}"
                   method="post"
-                  th:object="${cliente}">
+                  th:object="${articulo}">
 
-                <input type="hidden" name="idCliente" th:field="*{idCliente}"/>
-                <input type="hidden" name="idCredito" th:field="*{credito.idCredito}"/>
-
-                <label for = "nombre"> Nombre:</label>            
-                <input type="text" name="nombre" th:field="*{nombre}"/>
-
-                <br/>
-
-                <label for = "apellidos"> Apellidos:</label>            
-                <input type="text" name="apellidos" th:field="*{apellidos}"/>
+                <input type="hidden" name="idArticulo" th:field="*{idArticulo}"/>
+                
+                <label for = "descripcion"> Descripcion:</label>            
+                <input type="text" name="descripcion" th:field="*{descripcion}"/>
 
                 <br/>
 
-                <label for = "correo"> Correo:</label>            
-                <input type="text" name="correo" th:field="*{correo}"/>
+                <label for = "detalle"> Detalle</label>            
+                <input type="text" name="detalle" th:field="*{detalle}"/>
 
                 <br/>
 
-                <label for = "telefono"> Telefono:</label>            
-                <input type="tel" name="telefono" th:field="*{telefono}"/>
+                <label for = "precio"> Precio:</label>            
+                <input type="number" name="precio" th:field="*{precio}"/>
+
                 <br/>
 
-                <label for = "limite"> Limite del credito:</label>            
-                <input type="number" name="limite" th:field="*{credito.limite}"/>
+                <label for = "existencias"> Existencias:</label>            
+                <input type="number" name="existencias" th:field="*{existencias}"/>
+                <br/>
+
+                <label for = "activo"> Estado:</label>            
+                <input type="text" name="activo" th:field="*{activo}"/>
 
                 <hr/>
 

@@ -25,11 +25,8 @@
                     <thead>
 
                         <tr>
-                            <th>Nombre</th>
-                            <th>Apellidos</th>
-                            <th>Correo</th>
-                            <th>Teléfono</th>
-                            <th>Limite</th>
+                            <th>Descripcion</th>
+                            <th>Estado</th>                            
                             <th>Eliminar</th>
                             <th>Modificar</th>
 
@@ -38,12 +35,8 @@
                     </thead>
                     <tbody>
                         <tr th:each="categoria : ${categorias}">
-                            <td th:text="${categoria.nombre}"></td>
-                            <td th:text="${categoria.apellidos}"></td>
-                            <td th:text="${categoria.correo}"></td>
-                            <td th:text="${categoria.telefono}"></td>
-                            <td th:text="${#numbers.formatDecimal(categoria.credito.limite,3,2)}"
-                                style="text-align: right"></td>
+                            <td th:text="${categoria.descripcion}"></td>
+                            <td th:text="${categoria.activo}"></td>                               
                             <td><a th:href="@{/categoria/eliminar/}+${categoria.idCategoria}"> Eliminar </a></td>
                             <td><a th:href="@{/categoria/modificar/}+${categoria.idCategoria}"> Modificar </a></td>
                         </tr>
