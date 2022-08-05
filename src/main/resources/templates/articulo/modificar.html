@@ -2,12 +2,10 @@
 
 <html xmlns:th="http://www.thymeleaf.org">
 
-    <head>
+    <head th:replace="layout/plantilla :: head">
 
         <title>TechShop</title>
-        <meta charset="UTF-8">
-        <link href="/css/menu.css" rel="stylesheet" type="text/css"/>
-        
+       
     </head>
     <body>
 
@@ -17,7 +15,7 @@
             
             <h1> Datos Articulo</h1>
 
-            <a th:href = "@{/articulo/listado}"> Regresar </a>
+            <a th:href = "@{/articulo/listado}"> [[#{accion.regresar}]] </a>
 
             <hr/>
 
@@ -27,7 +25,7 @@
 
                 <input type="hidden" name="idArticulo" th:field="*{idArticulo}"/>
                 
-                <label for="categoria"> Categoria: </label>
+                <label for="categoria"> [[#{articulo.categoria}]]: </label>
                 
                 <select th:field="*{idCategoria}">
                     
@@ -39,31 +37,31 @@
                 
                 <br/>
                 
-                <label for = "descripcion"> Descripcion:</label>            
+                <label for = "descripcion"> [[#{articulo.descripcion}]]: </label>            
                 <input type="text" name="descripcion" th:field="*{descripcion}"/>
 
                 <br/>
 
-                <label for = "detalle"> Detalle:</label>            
+                <label for = "detalle"> [[#{articulo.detalle}]]:</label>            
                 <textarea name="detalle" th:field="*{detalle}" rows="6" cols="50"/>
 
                 <br/>
 
-                <label for = "precio"> Precio:</label>            
+                <label for = "precio"> [[#{articulo.precio}]]:</label>            
                 <input type="number" name="precio" th:field="*{precio}"/>
 
                 <br/>
 
-                <label for = "existencias"> Existencias:</label>            
+                <label for = "existencias"> [[#{articulo.existencias}]]:</label>            
                 <input type="number" name="existencias" th:field="*{existencias}"/>
                 <br/>
 
-                <label for = "activo"> Estado:</label>            
+                <label for = "activo"> [[#{articulo.activo}]]:</label>            
                 <input type="checkbox" name="activo" th:field="*{activo}"/>
                
                 <hr/>
 
-                <input type="submit" name="guardar" value="Guardar"/>
+                <button type="submit" name="guardar" th:text="#{accion.guardar}"/>
             </form>
 
         </div>

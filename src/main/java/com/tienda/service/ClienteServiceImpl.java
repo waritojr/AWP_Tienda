@@ -22,6 +22,13 @@ public class ClienteServiceImpl implements ClienteService{
     
     @Override
     @Transactional (readOnly = true)
+    public Cliente getByApellidos(Cliente cliente) {
+        
+        return ((List<Cliente>) clienteDao.findByApellidos(cliente.getApellidos())).get(0);
+    }
+    
+    @Override
+    @Transactional (readOnly = true)
     public List<Cliente> getClientes() {
         
         return (List<Cliente>) clienteDao.findAll();

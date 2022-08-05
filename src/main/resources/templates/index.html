@@ -2,19 +2,17 @@
 
 <html xmlns:th="http://www.thymeleaf.org">
 
-    <head>
+    <head th:replace="layout/plantilla :: head">
 
         <title>TechShop</title>
-        <meta charset="UTF-8">
-        <link href="/css/menu.css" rel="stylesheet" type="text/css"/>
-
+        
     </head>
     <body>
 
         <header th:replace="layout/plantilla :: header"/>
 
         <div class="contenido">
-            <h1>Nuestros Articulos</h1>
+            <h2> [[#{index.titulo}]] </h2>
 
             <div th:if="${articulos != null and !articulos.empty}">
 
@@ -23,10 +21,9 @@
                     <thead>
 
                         <tr>
-                            <th>Descripcion</th>
-                            <th>Precio</th>
-
-
+                            <th> [[#{articulo.descripcion}]] </th>
+                            <th> [[#{articulo.precio}]] </th>
+                            <th> [[#{articulo.comprar}]] </th>
                         </tr>
 
                     </thead>
@@ -35,6 +32,10 @@
                             <td th:text="${articulo.descripcion}"></td>
                             <td th:text="${#numbers.formatDecimal(articulo.precio,3,2)}"
                                 style="text-align: right"></td>
+
+                            <td>
+                                <a th:href="@{/carrito/agregar} + ${articulo.idArticulo}"> [[#{accion.agregar}]] </a>
+                            </td>
                         </tr>
                     </tbody>
 
@@ -44,10 +45,10 @@
 
             <div th:if="${articulos == null and articulos.empty}">
 
-                No tenemos lista de articulos que mostrar 
+                [[#{articulo.no_mostrar}]] 
 
             </div>
-            
+
         </div>
 
         <footer th:replace="layout/plantilla :: footer"/>

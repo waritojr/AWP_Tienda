@@ -6,6 +6,8 @@ import java.util.List;
 
 public interface ClienteService {
     
+    public Cliente getByApellidos(Cliente cliente);
+    
     public List<Cliente> getClientes();
     
     public void save(Cliente cliente);

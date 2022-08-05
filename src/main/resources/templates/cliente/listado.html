@@ -2,12 +2,10 @@
 
 <html xmlns:th="http://www.thymeleaf.org">
 
-    <head>
+    <head th:replace="layout/plantilla :: head">
 
         <title>TechShop</title>
-        <meta charset="UTF-8">
-        <link href="/css/menu.css" rel="stylesheet" type="text/css"/>
-
+        
     </head>
     <body>
 
@@ -17,6 +15,10 @@
             <h1>Nuestros Clientes</h1>
 
             <a th:href = "@{/cliente/nuevo}"> Nuevo Cliente </a>
+            
+            <br/>
+            
+            <a th:href = "@{/cliente/busqueda}"> Buscar por apellidos </a>            
 
             <div th:if="${clientes != null and !clientes.empty}">
 
