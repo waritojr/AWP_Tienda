@@ -13,7 +13,7 @@
 
         <header th:replace="layout/plantilla :: header"/>
         <div class="contenido">
-            
+
             <h1>Nuestros Articulos</h1>
 
             <a th:href = "@{/articulo/nuevo}"> Nuevo Articulo </a>
@@ -25,8 +25,7 @@
                     <thead>
 
                         <tr>
-                            <th>Descripcion</th>
-                            <th>Detalle</th>
+                            <th>Descripcion</th>                           
                             <th>Precio</th>
                             <th>Existencias</th>
                             <th>Estado</th>
@@ -38,13 +37,12 @@
                     </thead>
                     <tbody>
                         <tr th:each="articulo : ${articulos}">
-                            <td th:text="${articulo.descripcion}"></td>
-                            <td th:text="${articulo.detalle}"></td>
+                            <td th:text="${articulo.descripcion}"></td>                           
                             <td th:text="${#numbers.formatDecimal(articulo.precio,3,2)}"
                                 style="text-align: right"></td>
                             <td th:text="${articulo.existencias}"
                                 style="text-align: center"></td>
-                            <td th:text="${articulo.activo}"></td>                            
+                            <td style="text-align: center"><input type="checkbox" name="activo" th:checked="${articulo.activo}" disabled="true"></td>                              
                             <td><a th:href="@{/articulo/eliminar/}+${articulo.idArticulo}"> Eliminar </a></td>
                             <td><a th:href="@{/articulo/modificar/}+${articulo.idArticulo}"> Modificar </a></td>
                         </tr>
