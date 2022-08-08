@@ -7,41 +7,40 @@
     <head th:replace="layout/plantilla :: head">
 
         <title>TechShop</title>
-        
+
     </head>
     <body>
 
         <header th:replace="layout/plantilla :: header"/>
 
-        <div class="contenido">
+        <div class="container">
+
             <h2> [[#{index.titulo}]] </h2>
 
-            <div th:if="${articulos != null and !articulos.empty}">
+            <div class="row row-cols-3" 
+                 th:if="${articulos != null and !articulos.empty}">
 
-                <table border="1">
+                <div class="card" th:each="articulo : ${articulos}">
 
-                    <thead>
+                    <div class="card-body">
 
-                        <tr>
-                            <th> [[#{articulo.descripcion}]] </th>
-                            <th> [[#{articulo.precio}]] </th>
-                            <th> [[#{articulo.comprar}]] </th>
-                        </tr>
+                        <h5 class="card-title"> [[${articulo.descripcion}]] </h5>
 
-                    </thead>
-                    <tbody>
-                        <tr th:each="articulo : ${articulos}">
-                            <td th:text="${articulo.descripcion}"></td>
-                            <td th:text="${#numbers.formatDecimal(articulo.precio,3,2)}"
-                                style="text-align: right"></td>
+                        <h6 class="card-subtitle mf-2 text-muted text-end">
 
-                            <td>
-                                <a th:href="@{/carrito/agregar} + ${articulo.idArticulo}"> [[#{accion.agregar}]] </a>
-                            </td>
-                        </tr>
-                    </tbody>
+                            [[${new java.text.DecimalFormat('¢#,##0.00').format(articulo.precio)}]] 
 
-                </table>
+                        </h6>
+
+                        <img src="/img/Alienware.jpg" alt=""/>
+
+                        <a class="card-link" th:href="@{/carrito/agregar} + ${articulo.idArticulo}"> [[#{accion.agregar}]] </a>
+
+                        <p class="card-text"> [[${articulo.detalle}]] </p>
+
+                    </div>
+
+                </div>
 
             </div>
 
