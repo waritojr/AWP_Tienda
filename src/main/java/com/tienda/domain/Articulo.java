@@ -1,6 +1,7 @@
 package com.tienda.domain;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -25,9 +26,9 @@ public class Articulo implements Serializable {
     private double precio;
     private int existencias;
     private boolean activo;
+    @Column(name="ruta_imagen")
+    private String rutaImagen;
     
-    
-
     public Articulo() {  //Constructor default
     }
 
